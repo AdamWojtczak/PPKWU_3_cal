@@ -11,9 +11,20 @@ import java.io.*;
 public class URLReader {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public static String printURL( @RequestParam("url") String url) throws Exception {
+	public static String printURL( @RequestParam("year") String year, @RequestParam("month") String month) throws Exception {
 
-		URL oracle = new URL(url);
+		if (month.length() == 1) {
+			if(!month.startsWith("0")) {
+				month = "0" + month;
+			}
+		}
+		StringBuilder urlBuilder = new StringBuilder();
+		urlBuilder.append("http://www.weeia.p.lodz.pl/pliki_strony_kontroler/kalendarz.php?rok=");
+		urlBuilder.append(year);
+		urlBuilder.append("&miesiac=");
+		urlBuilder.append(month);
+		urlBuilder.append("&lang=01");
+		URL oracle = new URL(urlBuilder.toString());
 		BufferedReader in = new BufferedReader(
 				new InputStreamReader(oracle.openStream()));
 

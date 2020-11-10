@@ -1,4 +1,8 @@
 package com.example.demo;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,5 +39,19 @@ public class URLReader {
 		in.close();
 
 		return stringBuilder.toString();
+	}
+
+	@RequestMapping(method = RequestMethod.GET, path = "/events")
+	public static String getMonthEvents() throws Exception {
+
+		Document doc = Jsoup.connect("http://localhost:8080/?year=2020&month=10").get();
+		Elements newsHeadlines = doc.select(".active");
+
+		StringBuilder str = new StringBuilder();
+		for (Element headline : newsHeadlines) {
+			str.append(headline.toString());
+		}
+		System.out.println("aaaaaaaaaaaaa");
+		return str.toString();
 	}
 }

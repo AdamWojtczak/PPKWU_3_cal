@@ -1,5 +1,6 @@
 package com.example.demo;
 import net.fortuna.ical4j.data.CalendarBuilder;
+import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Date;
 import net.fortuna.ical4j.model.Property;
@@ -113,7 +114,7 @@ public class URLReader {
 				String date = headline.text();
 				Elements title = headline.getElementsByTag("p");
 				String href = headline.attr("href");
-				if(date.charAt(0) > '0' && date.charAt(0) < '9' && date.charAt(1) > '0' && date.charAt(1) < '9') {
+				if(	Character.isDigit(date.charAt(0)) && !Character.isDigit(date.charAt(1))) {
 					date = "0" + date;
 				}
 				String titleString = "";
@@ -133,11 +134,6 @@ public class URLReader {
 		}
 
 
-
-		File fin = new File("mycalendar.ics");
-
-
-
 		Calendar calendar = new Calendar();
 
 		calendar.getProperties().add(new ProdId("-//AdamWojtczak//iCal4j 1.0/PL"));
@@ -155,8 +151,13 @@ public class URLReader {
 			calendar.getComponents().add(vEvent);
 		}
 
+		FileOutputStream fout = new FileOutputStream("mycalendar.ics");
+
+		CalendarOutputter outputter = new CalendarOutputter();
+		outputter.output(calendar, fout);
+
 		try {
-			InputStream inputStream = new FileInputStream(fileWriter);
+			InputStream inputStream = new FileInputStream(new File("mycalendar.ics"));
 			response.setContentType("text/calendar;charset=utf-8");
 			IOUtils.copy(inputStream, response.getOutputStream());
 			response.flushBuffer();

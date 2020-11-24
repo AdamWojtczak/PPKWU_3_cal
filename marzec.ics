@@ -1,0 +1,77 @@
+BEGIN:VCALENDAR
+PRODID:-//AdamWojtczak//iCal4j 1.0/PL
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200309
+SUMMARY:First Step to Fields Medal
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200313
+SUMMARY:Finał konkursu InfoSukces
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200316
+SUMMARY:Matura próbna Matematyka podstawowa
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200317
+SUMMARY:Matura próbna Matematyka rozszerzona
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200318
+SUMMARY:Matura próbna Fizyka rozszerzona
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200319
+SUMMARY:Matura próbna Chemia rozszerzona
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200323
+SUMMARY:Finał konkursu Fascynująca Fizyka - poziom podstawowy
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200325
+SUMMARY:Finał konkursu Fascynująca Fizyka - poziom ponadpodstawowy
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20201124T143952Z
+DTSTART;VALUE=DATE:20200327
+SUMMARY:Finał konkursu Piękne doświadczenie\, Fascynujące Wyjaśnienie
+UID:adres.synchronizacji@example.com
+URL:
+END:VEVENT
+END:VCALENDAR
+09: <p>First Step to Fields Medal</p> 
+13: <p>Finał konkursu InfoSukces</p> 
+16: <p>Matura próbna Matematyka podstawowa</p> 
+17: <p>Matura próbna Matematyka rozszerzona</p> 
+18: <p>Matura próbna Fizyka rozszerzona</p> 
+19: <p>Matura próbna Chemia rozszerzona</p> 
+23: <p>Finał konkursu Fascynująca Fizyka - poziom podstawowy</p> 
+25: <p>Finał konkursu Fascynująca Fizyka - poziom ponadpodstawowy</p> 
+27: <p>Finał konkursu Piękne doświadczenie, Fascynujące Wyjaśnienie</p> 

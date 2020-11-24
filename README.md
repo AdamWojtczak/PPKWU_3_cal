@@ -1,8 +1,10 @@
 # PPKWU_3_cal
 Weeia calendar scraper
 
-Po pierwszych dwóch godzinach spędzonych nad projektem działa:
-- Zapytanie o pobranie miesiaca z kalendarza weei
-  http://localhost:8080/?year=2020&month=03
-- Zapytanie o Eventy podane w formie tabeli html za pomocą JSoup z października 2020
-  http://localhost:8080/events/
+Po obydwu laboratoriach program działa już całkowicie.
+Przykładowe wywołania: http://localhost:8080/cal/?year=2020&month=03
+pobiera plik vCalendar dla miesiąca i roku wskazanego w parametrach: month i year.
+
+Największy prbolem był z niewłaściwym użyciem i zaimportowaniem biblioteki ical4j.
+Nowością (niekoniecznie trudnością) było też udostępnianie pliku do pobierania.
+W repozytorium znajdują się przykładowe pliki wygenerowane dla miesięcy paździenik i marzec nazwane odpowiednio nazwa_miesiaca.ics.

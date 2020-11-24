@@ -129,7 +129,7 @@ public class URLReader {
 				if(!titleString.isEmpty()) {
 					titleString = title.text();
 				}
-				iCalEventList.add(new ICalEvent(new Date(year.toString() + month.toString() + date.toString()), titleString, href));
+				iCalEventList.add(new ICalEvent(date, year, month, titleString, href));
 			}
 		}
 
@@ -143,7 +143,7 @@ public class URLReader {
 		UidGenerator ug = () -> new Uid("adres.synchronizacji@example.com");
 
 		for(ICalEvent iCalEvent : iCalEventList) {
-			VEvent vEvent = new VEvent(iCalEvent.day,iCalEvent.title);
+			VEvent vEvent = new VEvent(new Date(iCalEvent.year+iCalEvent.month+iCalEvent.day),iCalEvent.title);
 			vEvent.getProperties().add(ug.generateUid());
 			Url url = new Url();
 			url.setValue(iCalEvent.eventURL);
@@ -172,15 +172,27 @@ public class URLReader {
 	}
 
 	static class ICalEvent {
-		Date day;
+		Date date;
+		String day;
+		String year;
+		String month;
 		String title;
 		String eventURL;
 
-		public ICalEvent(Date day, String title, String eventURL) {
-			this.day = day;
+		public ICalEvent(Date date, String title, String eventURL) {
+			this.date = date;
 			this.title = title;
 			this.eventURL = eventURL;
 		}
+
+		public ICalEvent( String day, String year, String month, String title, String eventURL) {
+			this.day = day;
+			this.year = year;
+			this.month = month;
+			this.title = title;
+			this.eventURL = eventURL;
+		}
+
 	}
 
 }

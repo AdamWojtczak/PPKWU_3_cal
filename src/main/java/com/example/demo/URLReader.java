@@ -1,11 +1,9 @@
 package com.example.demo;
-import net.fortuna.ical4j.data.CalendarBuilder;
+
 import net.fortuna.ical4j.data.CalendarOutputter;
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.Date;
-import net.fortuna.ical4j.model.Property;
 import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.parameter.Value;
 import net.fortuna.ical4j.model.property.*;
 import net.fortuna.ical4j.util.UidGenerator;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -19,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.net.*;
 import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,40 +50,6 @@ public class URLReader {
 		in.close();
 
 		return stringBuilder.toString();
-	}
-
-	@RequestMapping(method = RequestMethod.GET, path = "/events")
-	public static String getMonthEvents(@RequestParam("year") String year, @RequestParam("month") String month) throws Exception {
-
-		if (month.length() == 1) {
-			if(!month.startsWith("0")) {
-				month = "0" + month;
-			}
-		}
-		StringBuilder urlBuilder = new StringBuilder();
-		urlBuilder.append("http://www.weeia.p.lodz.pl/pliki_strony_kontroler/kalendarz.php?rok=");
-		urlBuilder.append(year);
-		urlBuilder.append("&miesiac=");
-		urlBuilder.append(month);
-		urlBuilder.append("&lang=01");
-
-		Document doc = Jsoup.connect(urlBuilder.toString()).get();
-		Elements newsHeadlines = doc.select(".active");
-
-		StringBuilder str = new StringBuilder();
-		for (Element headline : newsHeadlines) {
-			if(headline.attr("class").equals("active")) {
-				String date = headline.text();
-				Elements title = headline.getElementsByTag("p");
-				String href = headline.attr("href");
-				if( !href.contains("javascript:void();")) {
-					str.append(date + ": " + title.text() + " " + href + "\n");
-				}
-			}
-		}
-
-		System.out.println("aaaaaaaaaaaaa");
-		return str.toString();
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/cal")
@@ -167,8 +131,7 @@ public class URLReader {
 			ioException.printStackTrace();
 		}
 
-		System.out.println("aaaaaaaaaaaaa");
-		return str.toString();
+		return "";
 	}
 
 	static class ICalEvent {

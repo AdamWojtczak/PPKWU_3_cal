@@ -28,6 +28,6 @@ END:VCALENDAR
 
 
 ### Biblioteki zewnętrzne
-* Przy tworzeniu pliku w formacie .ics korzystam z biblioteki ical4j (http://ical4j.github.io/).
-* Do skrapowania kalendarza z weeia.p.lodz.pl korzystam z biblioteki JSoup (https://jsoup.org/).
+* Przy tworzeniu pliku w formacie .ics korzystam z biblioteki [ical4j](http://ical4j.github.io/)
+* Do skrapowania kalendarza z weeia.p.lodz.pl korzystam z biblioteki [JSoup](https://jsoup.org/)
 

@@ -9,7 +9,7 @@ http://localhost:8080/cal/?year=2020&month=03
 ```
 pobiera plik vCalendar dla miesiąca i roku wskazanego w parametrach: month i year.
 
-## Przykładowe plik dla października
+### Przykładowe plik dla października
 
 ```
 BEGIN:VCALENDAR
